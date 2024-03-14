@@ -8,12 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var isWatered = false
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            ZStack {
+                Circle()
+                Image(systemName: isWatered ? "crown.fill" : "eyes.inverse")
+                    .font(.system(size: 150))
+                    .foregroundColor(isWatered ? .yellow: .white)
+            }
+            .frame(minHeight: 650)
+            .shadow(radius: 10)
+            
+            Divider()
+            
+            Toggle(isOn: $isWatered) {
+                Label("你喝水了吗？", systemImage: "drop.fill")
+            }
         }
         .padding()
     }
