@@ -38,3 +38,5 @@ struct ContentView: View {
 // Test of Branch
 
 // Test of Github
+
+// Test of App Store
